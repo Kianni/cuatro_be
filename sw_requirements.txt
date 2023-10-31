@@ -1,0 +1,17 @@
+GUI should consist of 5 views
+1. welcome view with "start" button
+2. options view with "display all sequences" and "add new sequence" buttons
+3. farewell view with "stop" button
+4. view which displays all sequences with buttons to remove them
+5. view with a form to add a new sequence
+and buttons to get from one view to another
+
+Application should contain a hardcoded list of 30 sequences
+
+Application should contain
+1. a functionality to add and remove sequences
+2. a functionality to search among sequences
+3. a functionality to sort sequences
+4. a functionality to validate user inputs
+
+Application should contain automation tests of GUI and 5 functionalities mentioned above
