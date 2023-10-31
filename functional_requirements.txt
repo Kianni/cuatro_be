@@ -1,0 +1,9 @@
+1. As a curious math learner I want to store interesting examples of sequences
+2. As a user I want to be welcomed and get a button to start the program (enter view with sequences)
+3. As a user I want to get farewell and a button to leave the program (leave the view with sequences)
+4. As a user I want to be able to add new sequences (in the special view)
+5. As a user I want to have an opportunity to remove sequences
+6. As a user I want to run the search among sequences
+7. As a user I want to sort sequences
+7. As an admin I want to be able to restore sequences number to 30
+8. As a user I need a button to list all sequences (maybe a table view)
