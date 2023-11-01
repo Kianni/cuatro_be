@@ -5,10 +5,10 @@ def welcome(request):
     return render(request, "sequences/welcome.html")
 
 def options(request):
-    return HttpResponse("display all or add a new")
+    return render(request, "sequences/options.html")
 
 def displayAllSequences(request):
-    return HttpResponse("display all")
+    return render(request, "sequences/display.html")
 
 def addSequence(request):
     return HttpResponse("add a new")
