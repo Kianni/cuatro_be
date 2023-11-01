@@ -16,9 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from sequences.views import welcome
+from sequences.views import welcome, options, displayAllSequences, farewell, addSequence
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', welcome )
+    path('', welcome ),
+    path('options', options ),
+    path('display', displayAllSequences ),
+    path('add', addSequence ),
+    path('farewell', farewell ),
 ]
