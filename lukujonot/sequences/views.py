@@ -11,7 +11,7 @@ def displayAllSequences(request):
     return render(request, "sequences/display.html")
 
 def addSequence(request):
-    return HttpResponse("add a new")
+    return render(request, "sequences/add.html")
 
 def farewell(request):
     return HttpResponse("stop")
