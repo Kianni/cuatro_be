@@ -14,4 +14,4 @@ def addSequence(request):
     return render(request, "sequences/add.html")
 
 def farewell(request):
-    return HttpResponse("stop")
+    return render(request, "sequences/farewell.html")
