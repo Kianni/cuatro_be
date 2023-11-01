@@ -1,3 +1,5 @@
 from django.contrib import admin
 
-# Register your models here.
+from sequences.models import Sequence
+
+admin.site.register(Sequence)
