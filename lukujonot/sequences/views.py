@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 
 def welcome(request):
-    return HttpResponse("start")
+    return render(request, "sequences/welcome.html")
 
 def options(request):
     return HttpResponse("display all or add a new")
