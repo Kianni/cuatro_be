@@ -3,15 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Add New Sequence</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
 </head>
-<body>
-<input type="text">
+<body class="container mt-5">
+<input type="text" class="form-control">
 </br>
-<button>
-    <a href="/display">display all sequences</a>
-</button>
-<button>
-    <a href="/farewell">Exit the program</a>
-</button>
+
+    <a href="/display" class="btn btn-primary" role="button">display all sequences</a>
+
+    <a href="/farewell" class="btn btn-secondary" role="button">Exit the program</a>
+
 </body>
 </html>

@@ -6,8 +6,9 @@
       {% load bootstrap5 %}
       {% bootstrap_css %}
       {% bootstrap_javascript %}
+    <link rel="stylesheet" href="/static/sequences/style.css">
 </head>
-<body class="container">
+<body class="container mt-5">
 <table class="table table-striped">
     <thead>
         <tr>
@@ -31,7 +32,7 @@
                 <td>
                     <form method="post" action="none">
                         {% csrf_token %}
-                        <button type="submit">Delete</button>
+                        <button type="submit" class="btn btn-danger">Delete</button>
                     </form>
                 </td>
             </tr>
