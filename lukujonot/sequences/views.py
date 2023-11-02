@@ -12,23 +12,29 @@ def options(request):
     return render(request, "sequences/options.html")
 
 def displayAllSequences(request):
-    sequences = Sequence.objects.all()
+    # Default sorting is none
+    sort_option = request.GET.get('sort', 'none')
+
+    if sort_option == 'asc':
+        sequences = Sequence.objects.all().order_by('name')  # Sort sequences by name in ascending order
+    else:
+        sequences = Sequence.objects.all()  # No sorting
+
     search_form = SequenceSearchForm()
 
     if request.method == 'POST':
         search_form = SequenceSearchForm(request.POST)
         if search_form.is_valid():
             name = search_form.cleaned_data['name']
-            sequences = Sequence.objects.filter(name__icontains=name)
+            sequences = sequences.filter(name__icontains=name)
 
     # Check for the "Show All" parameter
     show_all = request.GET.get('show_all')
     if show_all:
-        sequences = Sequence.objects.all()  # Reset the filter
-
-    # Iterate through the sequences and calculate the first seven terms for each
-    for sequence in sequences:
-        sequence.first_seven_terms = sequence.generate_first_seven_terms()
+        if sort_option == 'asc':
+            sequences = Sequence.objects.all().order_by('name')  # Reset the filter with sorting
+        else:
+            sequences = Sequence.objects.all()  # Reset the filter without sorting
 
     return render(request, "sequences/display.html", {"sequences": sequences, "search_form": search_form})
 
