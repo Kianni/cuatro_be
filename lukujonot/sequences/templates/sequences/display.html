@@ -21,7 +21,10 @@
                 <td>{{ forloop.counter }}</td>
                 <td>{{ sequence.name }}</td>
                 <td>{{ sequence.expression }}</td>
-                <td>{{ sequence.first_seven_terms }}</td>
+                <td>{% for term in sequence.first_seven_terms %}
+                    <i>{{term}},</i>
+                    {% endfor %}...
+                </td>
                 <td>
                     <form method="post" action="none">
                         {% csrf_token %}
