@@ -9,14 +9,13 @@ def options(request):
     return render(request, "sequences/options.html")
 
 def displayAllSequences(request):
-    return render(request, "sequences/display.html",
-                  {"sequences": [
-                      {"eka": [1,2,3,4]},
-                      {"toka": [1, 3, 5]},
-                      {"vika": [2, 4, 6]},
-                  ],
-                      "amount": Sequence.objects.count()
-                  })
+    sequences = Sequence.objects.all()
+
+    # Iterate through the sequences and calculate the first seven terms for each
+    for sequence in sequences:
+        sequence.first_seven_terms = sequence.generate_first_seven_terms()
+
+    return render(request, "sequences/display.html", {"sequences": sequences})
 
 def addSequence(request):
     return render(request, "sequences/add.html")

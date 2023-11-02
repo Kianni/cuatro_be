@@ -5,8 +5,32 @@
     <title>Display All Sequences</title>
 </head>
 <body>
-....all sequences
-{{sequences}}
-{{amount}}
+<table>
+    <thead>
+        <tr>
+            <th>Sequence Number</th>
+            <th>Name</th>
+            <th>Expression</th>
+            <th>First Seven Terms</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for sequence in sequences %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ sequence.name }}</td>
+                <td>{{ sequence.expression }}</td>
+                <td>{{ sequence.first_seven_terms }}</td>
+                <td>
+                    <form method="post" action="none">
+                        {% csrf_token %}
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
 </body>
 </html>
