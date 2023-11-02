@@ -40,6 +40,18 @@
         {% endfor %}
     </tbody>
 </table>
+
+<form method="post" class="my-5">
+    {% csrf_token %}
+    {{ search_form.as_p }}
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
+
+
+    <a href="?show_all=1" class="btn btn-warning">Show All</a>
+
+
+
 <a href="/add" class="btn btn-primary" role="button">
     add new sequence
 </a>

@@ -1,6 +1,8 @@
 from django.forms import modelform_factory
 from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
+
+from sequences.forms import SequenceSearchForm
 from sequences.models import Sequence
 
 def welcome(request):
@@ -11,12 +13,24 @@ def options(request):
 
 def displayAllSequences(request):
     sequences = Sequence.objects.all()
+    search_form = SequenceSearchForm()
+
+    if request.method == 'POST':
+        search_form = SequenceSearchForm(request.POST)
+        if search_form.is_valid():
+            name = search_form.cleaned_data['name']
+            sequences = Sequence.objects.filter(name__icontains=name)
+
+    # Check for the "Show All" parameter
+    show_all = request.GET.get('show_all')
+    if show_all:
+        sequences = Sequence.objects.all()  # Reset the filter
 
     # Iterate through the sequences and calculate the first seven terms for each
     for sequence in sequences:
         sequence.first_seven_terms = sequence.generate_first_seven_terms()
 
-    return render(request, "sequences/display.html", {"sequences": sequences})
+    return render(request, "sequences/display.html", {"sequences": sequences, "search_form": search_form})
 
 SequenceForm = modelform_factory(Sequence, exclude=[])
 
