@@ -20,9 +20,9 @@ from sequences.views import welcome, options, displayAllSequences, farewell, add
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', welcome ),
-    path('options', options ),
-    path('display', displayAllSequences ),
-    path('add', addSequence ),
-    path('farewell', farewell ),
+    path('', welcome),
+    path('options', options),
+    path('display', displayAllSequences),
+    path('add', addSequence),
+    path('farewell', farewell),
 ]
