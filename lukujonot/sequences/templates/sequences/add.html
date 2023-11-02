@@ -9,10 +9,12 @@
 </head>
 <body class="container mt-5">
 <h5><i>Create your own sequence and become proud of your math skills!</i></h5>
-<form>
+<form class="mt-5" method="post">
     <table>
         {{form}}
     </table>
+    {% csrf_token %}
+    <button type="submit" class="btn btn-success mt-2 mb-4">Create</button>
 </form>
 </br>
 

@@ -1,6 +1,6 @@
 from django.forms import modelform_factory
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from sequences.models import Sequence
 
 def welcome(request):
@@ -21,7 +21,13 @@ def displayAllSequences(request):
 SequenceForm = modelform_factory(Sequence, exclude=[])
 
 def addSequence(request):
-    form = SequenceForm()
+    if request.method == "POST":
+        form = SequenceForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("display")
+    else:
+        form = SequenceForm()
     return render(request, "sequences/add.html", {"form": form})
 
 def farewell(request):
