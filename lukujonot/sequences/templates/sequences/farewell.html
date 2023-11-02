@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Farewell</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
 </head>
-<body>
-<button>
-    <a href="/">Stop and buy buy!</a>
-</button>
+<body class="container mt-5">
+    <a href="/" class="btn btn-secondary" role="button">Stop and buy buy!</a>
 </body>
 </html>
