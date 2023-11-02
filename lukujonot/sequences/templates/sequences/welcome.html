@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Welcome!</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
 </head>
-<body>
-<button>
-    <a href="/options">Start!</a>
-</button>
+<body class="container mt-5">
+    <a href="/options" class="btn btn-primary" role="button">Start!</a>
 </body>
 </html>
