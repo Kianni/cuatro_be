@@ -36,6 +36,10 @@ def displayAllSequences(request):
         else:
             sequences = Sequence.objects.all()  # Reset the filter without sorting
 
+    # Iterate through the sequences and calculate the first seven terms for each
+    for sequence in sequences:
+        sequence.first_seven_terms = sequence.generate_first_seven_terms()
+
     return render(request, "sequences/display.html", {"sequences": sequences, "search_form": search_form})
 
 SequenceForm = modelform_factory(Sequence, exclude=[])
