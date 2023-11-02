@@ -31,7 +31,7 @@
                 </td>
                 <td>{{ sequence.expression }}</td>
                 <td>
-                    <form method="post" action="none">
+                    <form method="post" action="{% url 'delete_sequence' sequence.id %}">
                         {% csrf_token %}
                         <button type="submit" class="btn btn-danger">Delete</button>
                     </form>

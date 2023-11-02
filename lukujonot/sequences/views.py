@@ -1,6 +1,6 @@
 from django.forms import modelform_factory
 from django.http import HttpResponse
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from sequences.models import Sequence
 
 def welcome(request):
@@ -32,3 +32,10 @@ def addSequence(request):
 
 def farewell(request):
     return render(request, "sequences/farewell.html")
+
+def delete_sequence(request, sequence_id):
+    sequence = get_object_or_404(Sequence, id=sequence_id)
+    if request.method == 'POST':
+        sequence.delete()
+        return redirect('display')  # Redirect to the sequence display page
+    return render(request, 'sequences/display', {'sequence': sequence})

@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from sequences.views import welcome, options, displayAllSequences, farewell, addSequence
+from sequences.views import welcome, options, displayAllSequences, farewell, addSequence, delete_sequence
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,4 +25,5 @@ urlpatterns = [
     path('display', displayAllSequences, name='display'),
     path('add', addSequence),
     path('farewell', farewell),
+    path('delete/<int:sequence_id>/', delete_sequence, name='delete_sequence')
 ]
