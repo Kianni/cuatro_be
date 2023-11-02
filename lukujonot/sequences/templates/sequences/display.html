@@ -10,8 +10,8 @@
         <tr>
             <th>Sequence Number</th>
             <th>Name</th>
-            <th>Expression</th>
             <th>First Seven Terms</th>
+            <th>Expression</th>
             <th>Delete</th>
         </tr>
     </thead>
@@ -20,11 +20,11 @@
             <tr>
                 <td>{{ forloop.counter }}</td>
                 <td>{{ sequence.name }}</td>
-                <td>{{ sequence.expression }}</td>
                 <td>{% for term in sequence.first_seven_terms %}
                     <i>{{term}},</i>
                     {% endfor %}...
                 </td>
+                <td>{{ sequence.expression }}</td>
                 <td>
                     <form method="post" action="none">
                         {% csrf_token %}
