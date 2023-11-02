@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Display All Sequences</title>
+      {% load bootstrap5 %}
+      {% bootstrap_css %}
+      {% bootstrap_javascript %}
 </head>
-<body>
-<table>
+<body class="container">
+<table class="table table-striped">
     <thead>
         <tr>
             <th>Sequence Number</th>
@@ -35,11 +38,11 @@
         {% endfor %}
     </tbody>
 </table>
-<button>
-    <a href="/add">add new sequence</a>
-</button>
-<button>
-    <a href="/farewell">Exit the program</a>
-</button>
+<a href="/add" class="btn btn-primary" role="button">
+    add new sequence
+</a>
+<a href="/farewell" class="btn btn-secondary" role="button">
+    Exit the program
+</a>
 </body>
 </html>
